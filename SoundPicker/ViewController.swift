@@ -7,9 +7,12 @@
 //
 
 import UIKit
+import AVFoundation
 
 class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
 
+    var player: AVAudioPlayer?
+    
     var sounds: [String] = ["applause", "bubbles", "guitar", "monster"]
     
     @IBOutlet weak var soundPicker: UIPickerView!
@@ -28,7 +31,7 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return 4
+        return sounds.count
     }
     
     // MARK: Optional UIPickerViewDelegate methods
@@ -38,6 +41,34 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
 
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         print("didSelectRow \(row)")
+    }
+    
+    func playSound(audioSound: String) {
+        print("playsound called")
+        
+        let sound = NSDataAsset(name: audioSound)
+        
+        if sound == nil {
+            print("error opening sound")
+            return
+        }
+        
+        // play the sound
+        do {
+            // tells the system that playback is desired
+            try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayback)
+            
+            try AVAudioSession.sharedInstance().setActive(true)
+        } catch {
+            print("error setting up AVAudioSession")
+        }
+        
+        do {
+            player = try AVAudioPlayer(data: (sound?.data)!)
+            player?.play()
+        } catch {
+            print("error playing sound")
+        }
     }
 }
 
