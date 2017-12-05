@@ -12,18 +12,19 @@ import AVFoundation
 class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
 
     var player: AVAudioPlayer?
-    
     var sounds: [String] = ["applause", "bubbles", "guitar", "monster"]
+    var selectedSound: String = ""
     
     @IBOutlet weak var soundPicker: UIPickerView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        print("selectedSound: \(selectedSound)")
     }
     @IBAction func playButton(_ sender: UIButton) {
         print("play button tapped")
-        playSound(audioSound: "applause")
+        playSound(audioSound: selectedSound)
     }
     
     @IBAction func stopButton(_ sender: UIButton) {
@@ -49,7 +50,8 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
 
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         print("didSelectRow \(row)")
-        print("sound picked: \(sounds[row])")
+        selectedSound = sounds[row]
+        print("sound picked: \(selectedSound)")
     }
     
     func playSound(audioSound: String) {
