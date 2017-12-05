@@ -12,18 +12,17 @@ import AVFoundation
 class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
 
     var player: AVAudioPlayer?
-    // contains sound file names
+    // array that contains sound file names
     var sounds: [String] = ["applause", "bubbles", "guitar", "monster"]
-    // will hold name of sound selected by user
+    // will hold name of user selected sound
     var selectedSound: String = ""
     
     @IBOutlet weak var soundPicker: UIPickerView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
         
-        // the default row will be the first row
+        // the default row will be the first row in the picker
         let defaultRow = 0
         
         // store the sound name for default row
@@ -31,12 +30,10 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
         
         // select the row to display upon app load
         soundPicker.selectRow(defaultRow, inComponent: 0, animated: true)
-        
-        // print the default row
-        print("selectedSound: \(selectedSound)")
     }
+    
     @IBAction func playButton(_ sender: UIButton) {
-        print("play button tapped")
+        // play sound
         playSound(audioSound: selectedSound)
     }
     
@@ -50,25 +47,33 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
     // 1) numberOfComponents
     // 2) numberOfRowsInComponent
     
+    // 1) returns the number of 'columns' to display.
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
     
+    // 2) returns the # of rows in each component
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         return sounds.count
     }
     
     // MARK: Optional UIPickerViewDelegate methods
+    // 1) titleForRow
+    // 2) didSelectRow
+    
+    // 1) return either a plain NSString, a NSAttributedString, or a view (e.g UILabel) to display the row for the component
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         return sounds[row]
     }
 
+    // 2) manages behavior when row is selected
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         print("didSelectRow \(row)")
         selectedSound = sounds[row]
         print("sound picked: \(selectedSound)")
     }
     
+    // helper method to set up audio session
     func playSound(audioSound: String) {
         print("playsound called")
         
