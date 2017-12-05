@@ -193,6 +193,7 @@
 				TargetAttributes = {
 					16F95E821FD6223C00E7FABB = {
 						CreatedOnToolsVersion = 8.3.3;
+						DevelopmentTeam = VKKZ6JX7SH;
 						ProvisioningStyle = Automatic;
 					};
 					16F95E961FD6223C00E7FABB = {
@@ -414,6 +415,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = VKKZ6JX7SH;
 				INFOPLIST_FILE = SoundPicker/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.maribelmontejano.SoundPicker;
@@ -426,6 +428,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = VKKZ6JX7SH;
 				INFOPLIST_FILE = SoundPicker/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.maribelmontejano.SoundPicker;
