@@ -23,6 +23,7 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
     }
     @IBAction func playButton(_ sender: UIButton) {
         print("play button tapped")
+        playSound(audioSound: "applause")
     }
     
     @IBAction func stopButton(_ sender: UIButton) {
@@ -48,6 +49,7 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
 
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         print("didSelectRow \(row)")
+        print("sound picked: \(sounds[row])")
     }
     
     func playSound(audioSound: String) {
