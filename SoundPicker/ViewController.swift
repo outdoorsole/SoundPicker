@@ -8,8 +8,10 @@
 
 import UIKit
 
-class ViewController: UIViewController, UIPickerViewDataSource {
+class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
 
+    var sounds: [String] = ["applause", "bubbles", "guitar", "monster"]
+    
     @IBOutlet weak var soundPicker: UIPickerView!
     
     override func viewDidLoad() {
@@ -28,6 +30,14 @@ class ViewController: UIViewController, UIPickerViewDataSource {
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         return 4
     }
+    
+    // MARK: Optional UIPickerViewDelegate methods
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return sounds[row]
+    }
 
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        print("didSelectRow \(row)")
+    }
 }
 

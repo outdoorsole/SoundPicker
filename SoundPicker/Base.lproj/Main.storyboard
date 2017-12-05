@@ -24,6 +24,10 @@
                             <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Yvz-Ra-ViJ">
                                 <rect key="frame" x="0.0" y="178" width="375" height="216"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="4zx-9X-Mql"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="H4x-S6-g0B"/>
+                                </connections>
                             </pickerView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ddj-Dv-Ud0">
                                 <rect key="frame" x="128" y="446" width="30" height="30"/>
