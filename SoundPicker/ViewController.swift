@@ -12,7 +12,9 @@ import AVFoundation
 class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
 
     var player: AVAudioPlayer?
+    // contains sound file names
     var sounds: [String] = ["applause", "bubbles", "guitar", "monster"]
+    // will hold name of sound selected by user
     var selectedSound: String = ""
     
     @IBOutlet weak var soundPicker: UIPickerView!
@@ -20,6 +22,17 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        // the default row will be the first row
+        let defaultRow = 0
+        
+        // store the sound name for default row
+        selectedSound = sounds[defaultRow]
+        
+        // select the row to display upon app load
+        soundPicker.selectRow(defaultRow, inComponent: 0, animated: true)
+        
+        // print the default row
         print("selectedSound: \(selectedSound)")
     }
     @IBAction func playButton(_ sender: UIButton) {
