@@ -42,6 +42,8 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
     
     @IBAction func stopButton(_ sender: UIButton) {
         print("stop button tapped")
+        // stop current playback for player
+        player?.stop()
     }
     
     // MARK: UIPickerViewDataSource methods
