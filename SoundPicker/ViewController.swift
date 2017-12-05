@@ -21,6 +21,13 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
     }
+    @IBAction func playButton(_ sender: UIButton) {
+        print("play button tapped")
+    }
+    
+    @IBAction func stopButton(_ sender: UIButton) {
+        print("stop button tapped")
+    }
     
     // MARK: UIPickerViewDataSource methods
     // 1) numberOfComponents
